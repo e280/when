@@ -5,7 +5,7 @@ import themeCss from "../theme.css.js"
 import stylesCss from "./styles.css.js"
 
 import {context} from "../../logic/context.js"
-import {AuthorView} from "../pages/author/author.js"
+import {AuthorView} from "../pages/author/view.js"
 import {ErrorSituation, WitnessSituation} from "../../logic/parts/situation.js"
 
 export const WhenstApp = shadowComponent(use => {

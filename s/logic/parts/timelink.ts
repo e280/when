@@ -1,17 +1,18 @@
 
+import { Codecs } from "../../tools/codecs.js"
 import {Router} from "./router.js"
 import {Base58, Txt} from "@e280/stz"
 
 export class Timelink {
-	static regex = /^\/([a-z0-9]+)\/([a-z0-9]*)$/i
+	static regex = /^\/([a-z0-9]+)(?:|\/([a-z0-9]*))$/i
 
 	static fromRoute(route: string) {
 		const match = route.match(this.regex)
 		if (!match) throw new Error("invalid route for timelink parsing")
-		const [, timeEncoded, markdownEncoded] = match
+		const [, timeEncoded, textEncoded] = match
 		const time = decodeTime(timeEncoded)
-		const md = decodeMd(markdownEncoded)
-		return new this(time, md)
+		const text = decodeText(textEncoded)
+		return new this(time, text)
 	}
 
 	static fromUrl(url: string | URL) {
@@ -21,11 +22,13 @@ export class Timelink {
 	
 	constructor(
 		public time: number,
-		public md: string,
+		public text: string,
 	) {}
 
 	toRoute() {
-		return `/${encodeTime(this.time)}/${encodeMd(this.md)}`
+		return this.text
+			? `/${encodeTime(this.time)}/${encodeText(this.text)}`
+			: `/${encodeTime(this.time)}`
 	}
 
 	toUrl() {
@@ -39,23 +42,23 @@ export class Timelink {
 
 function encodeTime(time: number) {
 	const seconds = Math.floor(time / 1000)
-	return seconds.toString(32)
+	return Codecs.base62.fromInteger(seconds)
 }
 
 function decodeTime(text: string) {
-	const seconds = parseInt(text, 32)
+	const seconds = Codecs.base62.toInteger(text)
 	return seconds * 1000
 }
 
-function encodeMd(md: string) {
+function encodeText(md: string) {
 	if (!md) return ""
-	const bytes = Txt.bytes(md)
-	return Base58.string(bytes)
+	const bytes = Txt.toBytes(md)
+	return Codecs.base62.fromBytes(bytes)
 }
 
-function decodeMd(b58: string) {
+function decodeText(b58: string) {
 	if (!b58) return ""
-	const bytes = Base58.bytes(b58)
-	return Txt.string(bytes)
+	const bytes = Codecs.base62.toBytes(b58)
+	return Txt.fromBytes(bytes)
 }
 

@@ -20,7 +20,7 @@ export default css`
 	width: 100%;
 	gap: 0.5em;
 
-	> div {
+	> * {
 		flex: 1 1 16em;
 		width: 50%;
 		display: flex;

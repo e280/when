@@ -51,6 +51,12 @@ a {
 		margin-top: 0.7em;
 	}
 
+	hr {
+		border: none;
+		height: 0.1em;
+		background: color-mix(in lch, transparent, currentColor 30%);
+	}
+
 	blockquote {
 		border-left: 0.2em solid currentColor;
 		background: color-mix(in lch, transparent, var(--accent) 10%);
