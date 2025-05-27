@@ -22,7 +22,7 @@ export default template(async basic => {
 			<meta data-version="${version}"/>
 
 			${renderSocialCard({
-				themeColor: "#aaa",
+				themeColor: "#ff9b00",
 				siteName: domain,
 				title: "Whenst – tell people when",
 				description: "Always shows times in everyone's own local timezone.",
