@@ -1,14 +1,15 @@
 
+import {Timelink} from "./timelink.js"
+
 export abstract class Situation {}
 
-export class ErroringSituation extends Situation {}
+export class ErrorSituation extends Situation {}
 
-export class AuthoringSituation extends Situation {}
+export class AuthorSituation extends Situation {}
 
-export class ViewingSituation extends Situation {
-	constructor(
-		public time: number,
-		public label: string,
-	) { super() }
+export class WitnessSituation extends Situation {
+	constructor(public timelink: Timelink) {
+		super()
+	}
 }
 

@@ -34,5 +34,33 @@ a {
 	}
 }
 
+[theme-markdown] {
+	font: unset;
+	width: 100%;
+	min-height: 6em;
+	padding: 0.5em;
+	text-align: left;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+
+	img {
+		max-width: 100%;
+	}
+
+	> * + * {
+		margin-top: 0.7em;
+	}
+
+	blockquote {
+		border-left: 0.2em solid currentColor;
+		background: color-mix(in lch, transparent, var(--accent) 10%);
+		padding-left: 0.5em;
+	}
+
+	:is(ol, ul) {
+		padding-left: 1.5em;
+	}
+}
+
 }`
 

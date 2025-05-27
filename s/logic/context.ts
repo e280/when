@@ -1,10 +1,9 @@
 
 import {signal} from "@benev/slate"
-import {Base58, Txt} from "@e280/stz"
 
 import {Router} from "./parts/router.js"
 import {Timelink} from "./parts/timelink.js"
-import {AuthoringSituation, ErroringSituation, ViewingSituation} from "./parts/situation.js"
+import {AuthorSituation, ErrorSituation, WitnessSituation} from "./parts/situation.js"
 
 export class Context {
 	router = new Router()
@@ -23,15 +22,12 @@ export class Context {
 	static getSituation(route: string) {
 		const matchViewing = route.match(Timelink.regex)
 		if (matchViewing) {
-			const [_whole, time, label] = matchViewing
-			return new ViewingSituation(
-				Number(time),
-				label && Txt.string(Base58.bytes(label)),
-			)
+			const timelink = Timelink.fromUrl(location.href)
+			return new WitnessSituation(timelink)
 		}
 		else if (route !== "")
-			return new ErroringSituation()
-		return new AuthoringSituation()
+			return new ErrorSituation()
+		return new AuthorSituation()
 	}
 }
 

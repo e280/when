@@ -48,11 +48,13 @@ function decodeTime(text: string) {
 }
 
 function encodeMd(md: string) {
+	if (!md) return ""
 	const bytes = Txt.bytes(md)
 	return Base58.string(bytes)
 }
 
 function decodeMd(b58: string) {
+	if (!b58) return ""
 	const bytes = Base58.bytes(b58)
 	return Txt.string(bytes)
 }
