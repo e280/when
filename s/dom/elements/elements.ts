@@ -1,7 +1,7 @@
 
-import {WhenApp} from "./when-app/element.js"
+import {WhenstApp} from "./whenst-app/element.js"
 
 export const getElements = () => ({
-	WhenApp,
+	WhenstApp,
 })
 

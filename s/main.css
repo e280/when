@@ -3,8 +3,8 @@
 
 @layer vars {
 	:root {
-		--prime: #fffc;
-		--bg: #231a0e;
+		--prime: #ff9b00;
+		--bg: #23130e;
 		--link: cyan;
 	}
 }
@@ -17,6 +17,11 @@
 
 		scrollbar-width: thin;
 		scrollbar-color: #444 transparent;
+	}
+
+	::selection {
+		color: white;
+		background-color: #f70;
 	}
 
 	::-webkit-scrollbar { width: 8px; }
@@ -41,50 +46,71 @@
 			color: color-mix(in srgb, white, var(--link) 50%);
 		}
 	}
-
 }
 
 @layer page {
 	:root {
 		color-scheme: dark;
 
-		padding: 10vh 10vw;
+		padding: 5vw 0.5em;
 		min-height: 100%;
 		scrollbar-gutter: stable;
 
 		font-size: 21px;
 		font-family: serif;
 
-		color: var(--prime);
-		background: var(--bg);
+		color: color-mix(in lch, var(--prime), #fff8 50%);
+		background:
+			radial-gradient(circle, #0004, #000c),
+			var(--bg) url("/assets/sandleather.avif") center center / cover;
 	}
 
 	body {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: 3em;
+	}
+
+	main {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 2em;
 		text-align: center;
-	}
 
-	h1 {
-		font-size: 3em;
-	}
-
-	when-app {
-		width: 24em;
+		width: 32em;
 		max-width: 100%;
 
-		border-top: 0.1em solid #fff2;
-		border-bottom: 0.1em solid #fff2;
-	}
-
-	footer {
-		.version {
-			opacity: 0.3;
-			font-size: 1rem;
+		h1 {
+			font-size: 3em;
+			color: color-mix(in lch, var(--prime), white 50%);
 			font-weight: normal;
+			text-shadow:
+				0 0 0.3em color-mix(in lch, transparent, var(--prime) 90%),
+				0 0 1em color-mix(in lch, transparent, var(--prime) 80%);
+		}
+		
+		whenst-app {
+			padding: 2em;
+			--bcolor: color-mix(in lch, transparent, currentColor 10%);
+			border-top: 0.1em solid var(--bcolor);
+			border-bottom: 0.1em solid var(--bcolor);
+		}
+
+		footer {
+			opacity: 0.8;
+
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.7em;
+
+			.version {
+				opacity: 0.5;
+				font-weight: normal;
+			}
 		}
 	}
+
 }
 
