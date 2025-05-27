@@ -3,7 +3,7 @@ import "@benev/slate/x/node.js"
 import {template, html, easypage, headScripts, git_commit_hash, read_file, read_json, unsanitized, renderSocialCard} from "@benev/turtle"
 
 const domain = "when.e280.org"
-const favicon = "/assets/favicon.png"
+const favicon = "/assets/clock.png"
 const version = (await read_json("package.json")).version
 
 export default template(async basic => {
@@ -37,16 +37,14 @@ export default template(async basic => {
 			})}
 		`,
 		body: html`
-			<h1>
-				<span>When</span>
-				<span class=version>v${version}</span>
-			</h1>
+			<h1>When</h1>
 
 			<when-app></when-app>
 
 			<footer>
-				<p>Own your identity. Open-source. Privacy-focused. User-sovereign.</p>
+				<p>Tell people what time it is, in their local timezone.</p>
 				<p>Learn more on <a href="https://github.com/e280/when#readme" target=_blank>GitHub</a>.</p>
+				<p class=version>v${version}</p>
 			</footer>
 		`,
 	})
