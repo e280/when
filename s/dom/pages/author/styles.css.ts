@@ -6,11 +6,45 @@ export default css`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 0.5em;
+	gap: 1em;
 }
 
 :host > h2 {
 	color: var(--accent);
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 0.1em;
+
+	width: 100%;
+
+	> p:first-of-type {
+		opacity: 0.3;
+		padding: 0 1em;
+		text-transform: uppercase;
+		font-family: sans-serif;
+		font-weight: bold;
+		text-align: left;
+		align-self: start;
+	}
+
+	> div {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
+	}
+
+	textarea {
+		min-height: 6em;
+		padding: 0.5em;
+	}
+
+	[view="slate"] {
+		width: 100%;
+	}
 }
 
 .timepicker {
@@ -28,22 +62,14 @@ export default css`
 
 .split {
 	display: flex;
+	flex-direction: column;
 	flex-wrap: wrap;
 	align-items: stretch;
 	width: 100%;
 	gap: 0.5em;
 
 	> * {
-		flex: 1 1 16em;
-		width: 50%;
-		display: flex;
-		flex-direction: column;
 
-		textarea {
-			flex: 1 1 auto;
-			min-height: 6em;
-			padding: 0.5em;
-		}
 	}
 }
 
@@ -57,17 +83,12 @@ small {
 	padding: 0 1em;
 }
 
-[view="time"] {
-	border-radius: 0.5em;
-	padding: 0.5em;
-	border: 0.1em solid color-mix(in lch, transparent, currentColor 10%);
-}
-
 .preview {
 	background: #0008;
 }
 
 .timelink {
+	font-family: sans-serif;
 	font-size: 1.3em;
 	word-break: break-all;
 }

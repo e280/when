@@ -4,9 +4,9 @@ export default css`
 
 .plate {
 	display: flex;
-	flex-direction: row-reverse;
+	flex-direction: row;
 	justify-content: center;
-	align-items: center;
+	align-items: start;
 	flex-wrap: wrap;
 	gap: 1em;
 

@@ -6,7 +6,7 @@
 		--prime: #ff9b00;
 		--accent: #7d5e38;
 		--bg: #23130e;
-		--link: cyan;
+		--link: #4bc1a5;
 	}
 }
 
@@ -94,17 +94,6 @@
 			}
 		}
 		
-		whenst-app {
-			padding: 1em;
-			--bcolor: color-mix(in lch, transparent, currentColor 10%);
-			border-top: 0.1em solid var(--bcolor);
-			border-bottom: 0.1em solid var(--bcolor);
-			background: #7c504717;
-			border-radius: 1em;
-			-webkit-backdrop-filter: blur(0.4em);
-			backdrop-filter: blur(0.4em);
-		}
-
 		footer {
 			opacity: 0.8;
 

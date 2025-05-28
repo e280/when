@@ -12,7 +12,9 @@ export const WitnessView = shadowView(use => (situation: WitnessSituation) => {
 	use.css(themeCss, stylesCss)
 
 	return html`
-		${TimeView([situation.timelink])}
+		<div theme-plate>
+			${TimeView([situation.timelink])}
+		</div>
 	`
 })
 

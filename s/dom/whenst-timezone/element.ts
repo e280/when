@@ -9,7 +9,7 @@ export const WhenstTimezone = shadowComponent(use => {
 	const timezone = getLocalTimezone()
 
 	return html`
-		Local timezone ${timezone.long} (${timezone.offset})
+		Local timezone is ${timezone.long} (${timezone.offset})
 	`
 })
 

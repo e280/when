@@ -23,7 +23,7 @@ export const AuthorView = shadowView(use => (_situation: AuthorSituation) => {
 
 	const updateMarkdown = use.once(() => {
 		const update = debounce(200, (input: HTMLTextAreaElement) => {
-			text.value = input.value ?? ""
+			text.value = (input.value ?? "").trim()
 		})
 		return (event: Event) => update(event.currentTarget as HTMLTextAreaElement)
 	})
@@ -34,35 +34,38 @@ export const AuthorView = shadowView(use => (_situation: AuthorSituation) => {
 	}
 
 	return html`
-		<h2>Choose a time for your event</h2>
-
-		<input
-			class="timepicker input"
-			type=datetime-local
-			@input="${updateTime}"
-			/>
-
-		<h2>Write a small optional description</h2>
-
-		<div class=split>
-			<div>
+		<section>
+			<p>Choose time and description</p>
+			<div theme-plate>
+				<input
+					class="timepicker input"
+					type=datetime-local
+					@input="${updateTime}"
+					/>
 				<textarea
 					class="text input"
 					theme-markdown
-					placeholder="type your short description..."
+					placeholder="short optional markdown description..."
 					maxlength="${constants.textLimit}"
 					@input="${updateMarkdown}"
 				></textarea>
 				<small>${remaining} character${remaining === 1 ?"" :"s"} remaining</small>
 			</div>
-			<div>
-				${TimeView([timelink])}
-				<small>Markdown preview</small>
-			</div>
-		</div>
+		</section>
 
-		<h2>Send this time link to your friends</h2>
-		<a class=timelink rel="nofollow" target=_blank href="${timelinkUrl}">${timelinkUrl}</a>
+		<section>
+			<p>Preview</p>
+			<div theme-plate>
+				${TimeView([timelink])}
+			</div>
+		</section>
+
+		<section>
+			<p>Send link to your friends</p>
+			<div theme-plate>
+				<a class=timelink rel="nofollow" target=_blank href="${timelinkUrl}">${timelinkUrl}</a>
+			</div>
+		</section>
 	`
 })
 
