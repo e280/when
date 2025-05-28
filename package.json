@@ -1,7 +1,7 @@
 {
 	"private": true,
 	"name": "@e280/whenst",
-	"version": "0.0.0-2",
+	"version": "0.0.0-3",
 	"description": "website to help people tell what time a thing is at",
 	"license": "MIT",
 	"main": "./x/index.js",
