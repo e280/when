@@ -1,7 +1,8 @@
 
-import { Codecs } from "../../tools/codecs.js"
+import {Txt} from "@e280/stz"
 import {Router} from "./router.js"
-import {Base58, Txt} from "@e280/stz"
+import {constants} from "../../constants.js"
+import {Codecs} from "../../tools/codecs.js"
 
 export class Timelink {
 	static regex = /^\/([a-z0-9]+)(?:|\/([a-z0-9]*))$/i
@@ -21,9 +22,11 @@ export class Timelink {
 	}
 	
 	constructor(
-		public time: number,
-		public text: string,
-	) {}
+			public time: number,
+			public text: string,
+		) {
+		this.text = this.text.slice(0, constants.textLimit)
+	}
 
 	toRoute() {
 		return this.text

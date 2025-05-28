@@ -18,7 +18,27 @@ export const TimeView = shadowView(use => (timelink: Timelink) => {
 
 	const content = markdownIt.render(timelink.text)
 
+	const date = new Date(timelink.time)
+	const yyyy = date.getFullYear()
+	const mm = date.getMonth() + 1
+	const dd = date.getDate()
+	const hours = date.getHours()
+	const h = hours % 12 || 12
+	const ampm = hours >= 12 ? "pm" : "am"
+	const m = date.getMinutes()
+
+	const formatter = new Intl.DateTimeFormat('en-US', {timeZoneName: 'long'})
+	const parts = formatter.formatToParts(new Date())
+	const zone = parts.find(part => part.type === "timeZoneName")?.value
+
 	return html`
+		<div class=time>
+			<h1>
+				<span>${yyyy}-${mm}-${dd}</span>
+				<span>${h}:${m} ${ampm}</span>
+				<span>${zone} (UTC-${date.getTimezoneOffset() / 60})</span>
+			</h1>
+		</div>
 		<div class=preview theme-markdown>
 			${unsafeHTML(content)}
 		</div>

@@ -3,15 +3,16 @@ import {css} from "@benev/slate"
 export default css`
 
 :host {
-	display: block;
-	width: 100%;
-	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+:host > * {
+	flex: 1 1 auto;
 }
 
 .preview {
 	background: #0008;
-	width: 100%;
-	min-height: 100%;
 }
 
 `

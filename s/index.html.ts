@@ -41,8 +41,7 @@ export default template(async basic => {
 				<h1>Whenst</h1>
 				<whenst-app></whenst-app>
 				<footer>
-					<p>Whenst helps people ignore timezones.</p>
-					<p>Share a time link, and everybody sees it in their local timezone.</p>
+					<p>All times are shown in your local timezone.</p>
 					<p>Learn more on <a href="https://github.com/e280/whenst#readme" target=_blank>GitHub</a>.</p>
 					<p class=version>v${version}</p>
 				</footer>

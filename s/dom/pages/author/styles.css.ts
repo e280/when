@@ -47,5 +47,9 @@ export default css`
 	word-break: break-all;
 }
 
+* + h2 {
+	margin-top: 1em;
+}
+
 `
 
