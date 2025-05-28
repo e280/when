@@ -60,19 +60,6 @@ section {
 	border-radius: 0.5em;
 }
 
-.split {
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	align-items: stretch;
-	width: 100%;
-	gap: 0.5em;
-
-	> * {
-
-	}
-}
-
 @media (width > 400px) { .timepicker { font-size: 1em; } }
 @media (width > 600px) { .timepicker { font-size: 1.3em; } }
 
@@ -83,18 +70,10 @@ small {
 	padding: 0 1em;
 }
 
-.preview {
-	background: #0008;
-}
-
 .timelink {
 	font-family: sans-serif;
 	font-size: 1.3em;
 	word-break: break-all;
-}
-
-* + h2 {
-	margin-top: 1em;
 }
 
 `

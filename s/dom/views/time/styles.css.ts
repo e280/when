@@ -6,43 +6,43 @@ export default css`
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	align-items: start;
+	align-items: stretch;
 	flex-wrap: wrap;
 	gap: 1em;
 
 	> * {
-		flex: 1 1 17em;
+		flex: 0 1 auto;
 	}
 }
 
 .timeframe {
-	h1 {
-		font-size: 1em;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+
+	> span {
 		display: flex;
 		flex-direction: column;
-		gap: 0.5em;
-
-		> span {
-			display: flex;
-			flex-direction: column;
-		}
-
-		.dash {
-			opacity: 0.4;
-		}
-
-		.casual {
-			font-size: 1.4em;
-			color: var(--prime);
-		}
-
-		.precise {
-			opacity: 0.9;
-			font-size: 0.7em;
-			font-family: monospace;
-			font-weight: normal;
-		}
 	}
+
+	.casual {
+		font-size: 1.4em;
+		color: var(--prime);
+	}
+
+	.precise {
+		opacity: 0.9;
+		font-size: 0.7em;
+		font-family: monospace;
+		font-weight: normal;
+	}
+}
+
+.preview {
+	flex-grow: 1;
+	flex-basis: 10em;
+	padding-left: 1em;
+	border-left: 0.1em solid color-mix(in lch, transparent, currentColor 20%);
 }
 
 `
