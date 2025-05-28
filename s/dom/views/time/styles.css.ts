@@ -6,7 +6,7 @@ export default css`
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	align-items: stretch;
+	align-items: center;
 	flex-wrap: wrap;
 	gap: 1em;
 
