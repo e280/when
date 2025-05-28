@@ -10,12 +10,12 @@ export function calculateCountdown(time: number) {
 	const days = Math.floor(abs / (1000 * 60 * 60 * 24))
 
 	const parts = []
-	if (days) parts.push(`${days} day${days !== 1 ? 's' : ''}`)
-	if (hours) parts.push(`${hours} hour${hours !== 1 ? 's' : ''}`)
-	if (minutes) parts.push(`${minutes} minute${minutes !== 1 ? 's' : ''}`)
-	parts.push(`${seconds} second${seconds !== 1 ? 's' : ''}`)
+	if (days) parts.push(`${days}d`)
+	if (hours) parts.push(`${hours}h`)
+	if (minutes) parts.push(`${minutes}m`)
+	parts.push(`${seconds}s`)
 
-	const str = parts.join(", ")
+	const str = parts.join(" ")
 	return delta < 0 ? `${str} ago` : `in ${str}`
 }
 
