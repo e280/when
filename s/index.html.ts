@@ -38,11 +38,11 @@ export default template(async basic => {
 		`,
 		body: html`
 			<main>
-				<h1>Whenst</h1>
+				<h1><a href="#/">Whenst</a></h1>
 				<whenst-app></whenst-app>
 				<footer>
-					<p>All times are shown in your local timezone.</p>
-					<p>Learn more on <a href="https://github.com/e280/whenst#readme" target=_blank>GitHub</a>.</p>
+					<whenst-timezone></whenst-timezone>
+					<p>Learn more on <a href="https://github.com/e280/whenst#readme" target=_blank>GitHub</a></p>
 					<p class=version>v${version}</p>
 				</footer>
 			</main>

@@ -36,9 +36,6 @@ a {
 
 [theme-markdown] {
 	font: unset;
-	width: 100%;
-	min-height: 6em;
-	padding: 0.5em;
 	text-align: left;
 	word-wrap: break-word;
 	overflow-wrap: break-word;

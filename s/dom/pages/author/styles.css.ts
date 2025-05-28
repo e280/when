@@ -9,8 +9,21 @@ export default css`
 	gap: 0.5em;
 }
 
+:host > h2 {
+	color: var(--accent);
+}
+
 .timepicker {
-	font-size: 1.3em;
+	font-size: 0.7em;
+	padding: 0.5em;
+}
+
+.input {
+	border-radius: 0.5em;
+	color: white;
+	background: #0004;
+	border: 0.1em solid color-mix(in lch, transparent, currentColor 10%);
+	border-radius: 0.5em;
 }
 
 .split {
@@ -28,15 +41,26 @@ export default css`
 
 		textarea {
 			flex: 1 1 auto;
+			min-height: 6em;
+			padding: 0.5em;
 		}
 	}
 }
 
-.remaining {
+@media (width > 400px) { .timepicker { font-size: 1em; } }
+@media (width > 600px) { .timepicker { font-size: 1.3em; } }
+
+small {
 	opacity: 0.5;
 	font-size: 0.8em;
 	text-align: right;
 	padding: 0 1em;
+}
+
+[view="time"] {
+	border-radius: 0.5em;
+	padding: 0.5em;
+	border: 0.1em solid color-mix(in lch, transparent, currentColor 10%);
 }
 
 .preview {
@@ -44,6 +68,7 @@ export default css`
 }
 
 .timelink {
+	font-size: 1.3em;
 	word-break: break-all;
 }
 

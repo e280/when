@@ -6,7 +6,7 @@ import stylesCss from "./styles.css.js"
 import themeCss from "../../theme.css.js"
 
 import {constants} from "../../../constants.js"
-import {TimeView} from "../../views/time-view/view.js"
+import {TimeView} from "../../views/time/view.js"
 import {Timelink} from "../../../logic/parts/timelink.js"
 import {AuthorSituation} from "../../../logic/parts/situation.js"
 
@@ -37,7 +37,7 @@ export const AuthorView = shadowView(use => (_situation: AuthorSituation) => {
 		<h2>Choose a time for your event</h2>
 
 		<input
-			class=timepicker
+			class="timepicker input"
 			type=datetime-local
 			@input="${updateTime}"
 			/>
@@ -47,18 +47,22 @@ export const AuthorView = shadowView(use => (_situation: AuthorSituation) => {
 		<div class=split>
 			<div>
 				<textarea
+					class="text input"
 					theme-markdown
 					placeholder="type your short description..."
 					maxlength="${constants.textLimit}"
 					@input="${updateMarkdown}"
 				></textarea>
-				<p class=remaining>${remaining} remaining</p>
+				<small>${remaining} character${remaining === 1 ?"" :"s"} remaining</small>
 			</div>
-			${TimeView([timelink])}
+			<div>
+				${TimeView([timelink])}
+				<small>Markdown preview</small>
+			</div>
 		</div>
 
 		<h2>Send this time link to your friends</h2>
-		<a class=timelink rel="nofollow" href="${timelinkUrl}">${timelinkUrl}</a>
+		<a class=timelink rel="nofollow" target=_blank href="${timelinkUrl}">${timelinkUrl}</a>
 	`
 })
 

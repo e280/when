@@ -4,7 +4,7 @@
 @layer vars {
 	:root {
 		--prime: #ff9b00;
-		--accent: #ff9b00;
+		--accent: #7d5e38;
 		--bg: #23130e;
 		--link: cyan;
 	}
@@ -89,13 +89,20 @@
 			text-shadow:
 				0 0 0.3em color-mix(in lch, transparent, var(--prime) 90%),
 				0 0 1em color-mix(in lch, transparent, var(--prime) 80%);
+			a {
+				color: inherit;
+			}
 		}
 		
 		whenst-app {
-			padding: 2em;
+			padding: 1em;
 			--bcolor: color-mix(in lch, transparent, currentColor 10%);
 			border-top: 0.1em solid var(--bcolor);
 			border-bottom: 0.1em solid var(--bcolor);
+			background: #7c504717;
+			border-radius: 1em;
+			-webkit-backdrop-filter: blur(0.4em);
+			backdrop-filter: blur(0.4em);
 		}
 
 		footer {

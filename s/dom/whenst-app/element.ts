@@ -1,27 +1,25 @@
 
-import {html, shadowComponent} from "@benev/slate"
+import {shadowComponent} from "@benev/slate"
 
 import themeCss from "../theme.css.js"
 import stylesCss from "./styles.css.js"
 
 import {context} from "../../logic/context.js"
+import {ErrorView} from "../pages/error/view.js"
 import {AuthorView} from "../pages/author/view.js"
+import {WitnessView} from "../pages/witness/view.js"
 import {ErrorSituation, WitnessSituation} from "../../logic/parts/situation.js"
 
 export const WhenstApp = shadowComponent(use => {
 	use.styles(themeCss, stylesCss)
 	const situation = context.situation.value
 
-	const sitch = (
+	return (
 		(situation instanceof ErrorSituation) ?
-			"erroring" :
+			ErrorView([situation]) :
 		(situation instanceof WitnessSituation) ?
-			"viewing" :
+			WitnessView([situation]) :
 			AuthorView([situation])
 	)
-
-	return html`
-		${sitch}
-	`
 })
 

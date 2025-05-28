@@ -13,10 +13,6 @@ export class Context {
 		this.router.onChange(route => {
 			this.situation.value = Context.getSituation(route)
 		})
-
-		const link = new Timelink(Date.now(), `lmao`).toUrl()
-		const timelink = Timelink.fromUrl(link)
-		console.log(timelink)
 	}
 
 	static getSituation(route: string) {
