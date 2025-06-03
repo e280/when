@@ -24,10 +24,9 @@ export default template(async basic => {
 			${renderSocialCard({
 				themeColor: "#ff9b00",
 				siteName: domain,
-				title: "Whenst – tell people when",
-				description: "Always shows times in everyone's own local timezone.",
+				title: "Whenst – when it's happening",
+				description: "Shows times in everyone's own local timezone",
 				image: `https://${domain}${favicon}`,
-				url: `https://${domain}/`,
 			})}
 
 			${headScripts({
